@@ -16,7 +16,7 @@
 </p>
 
 
-## 一、关于Adblock-Rule-Collection，你可使用本仓库中的python脚本合并去重生成广告过滤规则列表，注意修改生成文件的保存路径与生成的文件名，可按需求添加不同的上游广告过滤规则列表（兼容adblock plus语法的锅炉其列表均可）进行DIY定制，这个脚本也可以把host拦截规则和Dnsmasq拦截规则处理为adblock plus拦截规则,随着加入合并的广告过滤规则越来越多，生成文件体积也会越来越大，若你的广告过滤程序订阅失败则就下载规则文件充当本地用户过滤器。
+## 一、关于Adblock-Rule-Collection，你可使用本仓库中的python脚本合并去重生成广告过滤规则列表，注意修改生成文件的保存路径与生成的文件名，可按需求添加不同的上游广告过滤规则列表（兼容adblock plus语法的过滤器列表均可）进行DIY定制，这个脚本也可以把host拦截规则和Dnsmasq拦截规则处理为adblock plus拦截规则,随着加入合并的广告过滤规则越来越多，生成文件体积也会越来越大，若你的广告过滤程序订阅失败则就下载规则文件充当本地用户过滤器。
 
 <hr>
 
@@ -41,7 +41,7 @@
 
 
 ## 三、适用范围
-适用于ADguard,Adblock Plus,uBlock Origin,Brave Browser等各类符合Adblock Plus (ABP) 语法、uBlock Origin 语法、AdGuard 语法的浏览器插件或广告拦截程序
+适用于ADguard,Adblock Plus,uBlock Origin,Brave Browser等各类符合Adblock Plus 语法、uBlock Origin 语法、AdGuard 语法的浏览器插件或广告拦截程序
 <br>
 
 
@@ -289,7 +289,6 @@
 238. [1Hosts's adblock list](https://raw.githubusercontent.com/badmojr/1Hosts/master/Pro/adblock.txt)
 239. [DD-AD](https://raw.githubusercontent.com/afwfv/DD-AD/main/rule/all.txt)
 
-  
 
 </details>
 
