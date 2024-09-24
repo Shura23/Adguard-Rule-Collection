@@ -71,6 +71,7 @@ def process_line(line):
             return f"||{domain}^"
     
     # 处理Dnsmasq规则，只处理将域名定向到127.0.0.1或0.0.0.0的情况
+    # 处理 address= 的情况
     if line.startswith('address='):
         parts = line.split('=')
         if len(parts) == 3:
@@ -78,6 +79,17 @@ def process_line(line):
             target_ip = parts[2]
             if target_ip == '127.0.0.1' or target_ip == '0.0.0.0':
                 return f"||{domain}^"
+
+    # 处理 server= 的情况
+    elif line.startswith('server='):
+        parts = line.split('=', 1)
+        if len(parts) == 2:
+            server_info = parts[1].split('/')
+            if len(server_info) == 3:
+                domain = server_info[1]
+                target_ip = server_info[2]
+                if target_ip == '127.0.0.1' or target_ip == '0.0.0.0':
+                    return f"||{domain}^"
     
     # 忽略其他未处理的规则，返回原规则
     return line
