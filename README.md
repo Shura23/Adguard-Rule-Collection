@@ -30,11 +30,11 @@
 <hr> 
 1、订阅地址: 
 
-**[完整版](https://raw.githubusercontent.com/REIJI007/Adblock-Rule-Collection/main/ADBLOCK_RULE_COLLECTION.txt)** &nbsp **[Cloudflare worker加速链接](https://adblock.miyajimareji007.workers.dev)**
+**[完整版](https://raw.githubusercontent.com/REIJI007/Adblock-Rule-Collection/main/ADBLOCK_RULE_COLLECTION.txt)**   &nbsp   **[Cloudflare worker加速链接](https://adblock.miyajimareji007.workers.dev)**
 <br>
 
 
-**[精简版](https://raw.githubusercontent.com/REIJI007/Adblock-Rule-Collection/main/ADBLOCK_RULE_COLLECTION_Lite.txt)**&nbsp **[Cloudflare worker加速链接](https://adblocklite.miyajimareji007.workers.dev)** 
+**[精简版](https://raw.githubusercontent.com/REIJI007/Adblock-Rule-Collection/main/ADBLOCK_RULE_COLLECTION_Lite.txt)**   &nbsp   **[Cloudflare worker加速链接](https://adblocklite.miyajimareji007.workers.dev)** 
 <br>
 
 
