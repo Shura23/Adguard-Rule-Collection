@@ -34,18 +34,17 @@
   </tr>
   <tr>
     <td>
-      <strong><a href="https://raw.githubusercontent.com/REIJI007/Adblock-Rule-Collection/main/ADBLOCK_RULE_COLLECTION.txt">完整版</a></strong> 
+      <strong><a href="https://raw.githubusercontent.com/REIJI007/Adblock-Rule-Collection/main/ADBLOCK_RULE_COLLECTION.txt">完整版</a></strong> | 
       <strong><a href="https://adblock.miyajimareji007.workers.dev">Cloudflare加速链接</a></strong>
     </td>
   </tr>
   <tr>
     <td>
-      <strong><a href="https://raw.githubusercontent.com/REIJI007/Adblock-Rule-Collection/main/ADBLOCK_RULE_COLLECTION_Lite.txt">精简版</a></strong> 
+      <strong><a href="https://raw.githubusercontent.com/REIJI007/Adblock-Rule-Collection/main/ADBLOCK_RULE_COLLECTION_Lite.txt">精简版</a></strong> | 
       <strong><a href="https://adblocklite.miyajimareji007.workers.dev">Cloudflare加速链接</a></strong>
     </td>
   </tr>
 </table>
-
 
 
 2、从Release中下载过滤器文件进行本地导入广告过滤器，release每20分钟自动发布一次
