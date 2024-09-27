@@ -358,8 +358,6 @@ def main():
 "https://raw.githubusercontent.com/xinggsf/Adblock-Plus-Rule/master/rule.txt",
 "https://raw.githubusercontent.com/xinggsf/Adblock-Plus-Rule/master/mv.txt",
 "https://raw.githubusercontent.com/hoshsadiq/adblock-nocoin-list/master/nocoin.txt",
-"https://raw.githubusercontent.com/jerryn70/GoodbyeAds/master/Formats/GoodbyeAds-AdBlock-Filter.txt",
-"https://raw.githubusercontent.com/jerryn70/GoodbyeAds/master/Formats/GoodbyeAds-Ultra-AdBlock-Filter.txt",
 "https://malware-filter.gitlab.io/malware-filter/phishing-filter-ag.txt",
 "https://malware-filter.gitlab.io/malware-filter/phishing-filter-agh.txt",
 "https://malware-filter.gitlab.io/malware-filter/phishing-filter.txt",
@@ -627,7 +625,10 @@ def main():
 "https://filters.adtidy.org/ios/filters/251_optimized.txt",
 "https://filters.adtidy.org/ios/filters/255_optimized.txt",
 "https://filters.adtidy.org/ios/filters/256_optimized.txt",
-"https://filters.adtidy.org/ios/filters/257_optimized.txt"
+"https://filters.adtidy.org/ios/filters/257_optimized.txt",
+"https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/Phishing-Angriffe",
+"https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/malware",
+"https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/spam.mails"
     ]
 
     # 设置保存文件路径
