@@ -58,10 +58,7 @@
 
 ## 四、汇总引用规则列表有如下
 <details>
-  <summary>查看规则列表</summary>
-
-
-引用列表如下：
+  <summary>点击查看规则列表</summary>
 
 
 1. [Anti-ad for ADguard](https://anti-ad.net/adguard.txt)  
