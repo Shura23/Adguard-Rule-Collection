@@ -1,26 +1,20 @@
 name: Generate AdBlock Dns Rules
-
 on:
   schedule:
     - cron: '*/20 * * * *'  # 每20分钟执行一次
   workflow_dispatch:  # 支持手动执行
-
 jobs:
   filter-rules:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
-
       - name: Read and filter ADBLOCK_RULE_COLLECTION.txt
         run: |
-          grep -E '^\@\@||.*\^$' ADBLOCK_RULE_COLLECTION.txt > ADBLOCK_RULE_COLLECTION_DNS.txt
-
+          grep -E '^@@\|\||^\|\|' ADBLOCK_RULE_COLLECTION.txt > ADBLOCK_RULE_COLLECTION_DNS.txt
       - name: Read and filter ADBLOCK_RULE_COLLECTION_Lite.txt
         run: |
-          grep -E '^\@\@||.*\^$' ADBLOCK_RULE_COLLECTION_Lite.txt > ADBLOCK_RULE_COLLECTION_DNS_Lite.txt
-
+          grep -E '^@@\|\||^\|\|' ADBLOCK_RULE_COLLECTION_Lite.txt > ADBLOCK_RULE_COLLECTION_DNS_Lite.txt
       - name: Commit and push changes
         run: |
           git config --local user.email "action@github.com"
@@ -29,4 +23,4 @@ jobs:
           git commit -m "Add AdBlock Dns Rules" || echo "No changes to commit"
           git push
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
