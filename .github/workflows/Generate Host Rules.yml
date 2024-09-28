@@ -40,7 +40,7 @@ jobs:
                   rules = []
                   for line in f:
                       line = line.strip()
-                      # 严格匹配 "||<域名>^" 格式的规则，排除IP格式
+                      # 严格匹配 "||<域名>^" 格式，排除IP格式
                       match = re.match(r'^\|\|([a-zA-Z0-9.-]+)\^$', line)
                       if match:
                           domain = match.group(1)
@@ -79,8 +79,9 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
+          git pull --rebase || echo "Pull failed, skipping."
           git add ADBLOCK_RULE_COLLECTION_HOST.txt ADBLOCK_RULE_COLLECTION_HOST_Lite.txt
-          git commit -m "Update AdBlock DNS Rules with strict filtering" || echo "No changes to commit"
+          git commit -m "Update AdBlock Host Rules with strict filtering" || echo "No changes to commit"
           git push
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN }}
