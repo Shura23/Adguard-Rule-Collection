@@ -28,17 +28,22 @@
 ## 二、本仓库使用方式如下：
 
 <hr> 
+
+*广告过滤器*
 <table border="1" style="border-collapse: collapse; width: 100%;">
   <tr>
-    <td>adblock fliter:</td>
+    <th>版本</th>
+    <th>链接</th>
   </tr>
   <tr>
+    <td>完整版</td>
     <td>
       <strong><a href="https://raw.githubusercontent.com/REIJI007/Adblock-Rule-Collection/main/ADBLOCK_RULE_COLLECTION.txt">Github链接</a></strong> | 
       <strong><a href="https://adblock.miyajimareji007.workers.dev">Cloudflare加速链接</a></strong>
     </td>
   </tr>
   <tr>
+    <td>精简版</td>
     <td>
       <strong><a href="https://raw.githubusercontent.com/REIJI007/Adblock-Rule-Collection/main/ADBLOCK_RULE_COLLECTION_Lite.txt">Github链接</a></strong> | 
       <strong><a href="https://adblocklite.miyajimareji007.workers.dev">Cloudflare加速链接</a></strong>
@@ -47,6 +52,8 @@
 </table>
 
 <hr>
+
+*dns过滤器*
 <table border="1" style="border-collapse: collapse; width: 100%;">
   <tr>
     <th>版本</th>
