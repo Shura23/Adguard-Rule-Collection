@@ -30,21 +30,42 @@
 <hr> 
 <table border="1" style="border-collapse: collapse; width: 100%;">
   <tr>
-    <td>订阅地址:</td>
+    <td>adblock fliter:</td>
   </tr>
   <tr>
     <td>
-      <strong><a href="https://raw.githubusercontent.com/REIJI007/Adblock-Rule-Collection/main/ADBLOCK_RULE_COLLECTION.txt">完整版</a></strong> | 
+      <strong><a href="https://raw.githubusercontent.com/REIJI007/Adblock-Rule-Collection/main/ADBLOCK_RULE_COLLECTION.txt">Github链接</a></strong> | 
       <strong><a href="https://adblock.miyajimareji007.workers.dev">Cloudflare加速链接</a></strong>
     </td>
   </tr>
   <tr>
     <td>
-      <strong><a href="https://raw.githubusercontent.com/REIJI007/Adblock-Rule-Collection/main/ADBLOCK_RULE_COLLECTION_Lite.txt">精简版</a></strong> | 
+      <strong><a href="https://raw.githubusercontent.com/REIJI007/Adblock-Rule-Collection/main/ADBLOCK_RULE_COLLECTION_Lite.txt">Github链接</a></strong> | 
       <strong><a href="https://adblocklite.miyajimareji007.workers.dev">Cloudflare加速链接</a></strong>
     </td>
   </tr>
 </table>
+
+<hr>
+<table border="1" style="border-collapse: collapse; width: 100%;">
+  <tr>
+    <td>adblock fliter:</td>
+  </tr>
+  <tr>
+    <td>
+      <strong><a href="https://raw.githubusercontent.com/REIJI007/Adblock-Rule-Collection/main/ADBLOCK_RULE_COLLECTION_DNS.txt">Github链接</a></strong> | 
+      <strong><a href="https://adblockdns.miyajimareji007.workers.dev">Cloudflare加速链接</a></strong>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <strong><a href="https://raw.githubusercontent.com/REIJI007/Adblock-Rule-Collection/main/ADBLOCK_RULE_COLLECTION_DNS_Lite.txt">Github链接</a></strong> | 
+      <strong><a href="https://adblockdnslite.miyajimareji007.workers.dev">Cloudflare加速链接</a></strong>
+    </td>
+  </tr>
+</table>
+
+<hr>
 
 
 2、从Release中下载过滤器文件进行本地导入广告过滤器，release每20分钟自动发布一次
