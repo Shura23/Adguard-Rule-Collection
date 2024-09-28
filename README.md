@@ -28,6 +28,7 @@
 ## 二、本仓库使用方式如下：
 
 <hr> 
+1、订阅地址
 
 *广告过滤器*
 <table border="1" style="border-collapse: collapse; width: 100%;">
@@ -74,9 +75,6 @@
     </td>
   </tr>
 </table>
-
-
-<hr>
 
 
 2、从Release中下载过滤器文件进行本地导入过滤器，release每20分钟自动发布一次
