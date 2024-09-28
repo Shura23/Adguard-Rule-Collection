@@ -52,7 +52,7 @@
   </tr>
 </table>
 
-<hr>
+<br>
 
 *DNS过滤器*
 <table border="1" style="border-collapse: collapse; width: 100%;">
