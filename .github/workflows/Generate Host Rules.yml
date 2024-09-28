@@ -44,7 +44,9 @@ jobs:
                       match = re.match(r'^\|\|([a-zA-Z0-9.-]+)\^$', line)
                       if match:
                           domain = match.group(1)
-                          rules.append(f"0.0.0.0 {domain}")
+                          # 确保不处理任何IP地址
+                          if not re.match(r'^\d+\.\d+\.\d+\.\d+$', domain):
+                              rules.append(f"0.0.0.0 {domain}")
               
               # 生成东八区（上海）时间戳
               tz = pytz.timezone('Asia/Shanghai')
