@@ -1,26 +1,65 @@
-name: Generate AdBlock Dns Rules
+name: Generate AdBlock DNS Rules
 on:
   schedule:
     - cron: '*/20 * * * *'  # 每20分钟执行一次
   workflow_dispatch:  # 支持手动执行
+
 jobs:
   filter-rules:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
-      - name: Read and filter ADBLOCK_RULE_COLLECTION.txt
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
         run: |
-          grep -E '^@@\|\||^\|\|' ADBLOCK_RULE_COLLECTION.txt > ADBLOCK_RULE_COLLECTION_DNS.txt
-      - name: Read and filter ADBLOCK_RULE_COLLECTION_Lite.txt
+          python -m pip install --upgrade pip
+          pip install pytz
+
+      - name: Process AdBlock rules
         run: |
-          grep -E '^@@\|\||^\|\|' ADBLOCK_RULE_COLLECTION_Lite.txt > ADBLOCK_RULE_COLLECTION_DNS_Lite.txt
+          python3 << EOF
+          import datetime
+          import pytz
+          import re
+
+          def process_file(input_file, output_file, title):
+              with open(input_file, 'r', encoding='utf-8') as f:
+                  rules = [line.strip() for line in f if re.match(r'^(@@\|\||\|\|)', line)]
+              
+              tz = pytz.timezone('Asia/Shanghai')
+              timestamp = datetime.datetime.now(tz).strftime('%Y-%m-%d %H:%M:%S')
+              
+              header = f"""!Title: {title}
+          !Description: 一个汇总了多个广告过滤器过滤规则的DNS过滤器订阅，每20分钟更新一次，确保即时同步上游减少误杀
+          !Homepage: https://github.com/REIJI007/Adblock-Rule-Collection
+          !LICENSE1: https://github.com/REIJI007/Adblock-Rule-Collection/blob/main/LICENSE-GPL3.0
+          !LICENSE2: https://github.com/REIJI007/Adblock-Rule-Collection/blob/main/LICENSE-CC BY-NC-SA 4.0
+          !生成时间: {timestamp}
+          !有效规则数目: {len(rules)}
+          """
+              
+              with open(output_file, 'w', encoding='utf-8') as f:
+                  f.write(header + '\n')
+                  f.write('\n'.join(rules))
+              
+              print(f"Processed {input_file}. Total rules: {len(rules)}")
+
+          process_file('ADBLOCK_RULE_COLLECTION.txt', 'ADBLOCK_RULE_COLLECTION_DNS.txt', 'Adblock-Rule-Collection-Dns')
+          process_file('ADBLOCK_RULE_COLLECTION_Lite.txt', 'ADBLOCK_RULE_COLLECTION_DNS_Lite.txt', 'Adblock-Rule-Collection-Dns-Lite')
+          EOF
+
       - name: Commit and push changes
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add ADBLOCK_RULE_COLLECTION_DNS.txt ADBLOCK_RULE_COLLECTION_DNS_Lite.txt
-          git commit -m "Add AdBlock Dns Rules" || echo "No changes to commit"
+          git commit -m "Update AdBlock DNS Rules with comments" || echo "No changes to commit"
           git push
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN }}
