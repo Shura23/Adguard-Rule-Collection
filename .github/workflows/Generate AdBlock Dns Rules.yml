@@ -1,0 +1,33 @@
+name: Generate AdBlock Dns Rules
+
+on:
+  push:
+    branches:
+      - main  
+  workflow_dispatch:
+
+jobs:
+  filter-rules:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Read and filter ADBLOCK_RULE_COLLECTION.txt
+        run: |
+          grep -E '^\@\@|^\|\|' ADBLOCK_RULE_COLLECTION.txt > ADBLOCK_RULE_COLLECTION_DNS.txt
+
+      - name: Read and filter ADBLOCK_RULE_COLLECTION_Lite.txt
+        run: |
+          grep -E '^\@\@|^\|\|' ADBLOCK_RULE_COLLECTION_Lite.txt > ADBLOCK_RULE_COLLECTION_DNS_Lite.txt
+
+      - name: Commit and push changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add ADBLOCK_RULE_COLLECTION_DNS.txt ADBLOCK_RULE_COLLECTION_DNS_Lite.txt
+          git commit -m "Add AdBlock Dns Rules"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
