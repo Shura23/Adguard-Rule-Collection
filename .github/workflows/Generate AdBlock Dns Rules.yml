@@ -1,26 +1,33 @@
+# 工作流名称
 name: Generate AdBlock DNS Rules
+
+# 触发条件
 on:
   schedule:
     - cron: '*/20 * * * *'  # 每20分钟执行一次
-  workflow_dispatch:  # 支持手动执行
+  workflow_dispatch:  # 支持手动触发
 
 jobs:
   filter-rules:
     runs-on: ubuntu-latest
     steps:
+      # 步骤1: 检出仓库
       - name: Checkout repository
         uses: actions/checkout@v2
 
+      # 步骤2: 设置Python环境
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
-          python-version: '3.x'
+          python-version: '3.x'  # 使用最新的Python 3版本
 
+      # 步骤3: 安装依赖
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install pytz
+          pip install pytz  # 安装pytz库用于处理时区
 
+      # 步骤4: 处理AdBlock规则
       - name: Process AdBlock rules
         run: |
           python3 << EOF
@@ -29,12 +36,15 @@ jobs:
           import re
 
           def process_file(input_file, output_file, title):
+              # 读取输入文件并过滤规则
               with open(input_file, 'r', encoding='utf-8') as f:
                   rules = [line.strip() for line in f if re.match(r'^(@@\|\||\|\|)', line)]
               
+              # 生成东八区（上海）时间戳
               tz = pytz.timezone('Asia/Shanghai')
               timestamp = datetime.datetime.now(tz).strftime('%Y-%m-%d %H:%M:%S')
               
+              # 创建文件头注释
               header = f"""!Title: {title}
           !Description: 一个汇总了多个广告过滤器过滤规则的DNS过滤器订阅，每20分钟更新一次，确保即时同步上游减少误杀
           !Homepage: https://github.com/REIJI007/Adblock-Rule-Collection
@@ -44,16 +54,19 @@ jobs:
           !有效规则数目: {len(rules)}
           """
               
+              # 写入输出文件
               with open(output_file, 'w', encoding='utf-8') as f:
                   f.write(header + '\n')
                   f.write('\n'.join(rules))
               
               print(f"Processed {input_file}. Total rules: {len(rules)}")
 
+          # 处理两个输入文件
           process_file('ADBLOCK_RULE_COLLECTION.txt', 'ADBLOCK_RULE_COLLECTION_DNS.txt', 'Adblock-Rule-Collection-Dns')
           process_file('ADBLOCK_RULE_COLLECTION_Lite.txt', 'ADBLOCK_RULE_COLLECTION_DNS_Lite.txt', 'Adblock-Rule-Collection-Dns-Lite')
           EOF
 
+      # 步骤5: 提交和推送更改
       - name: Commit and push changes
         run: |
           git config --local user.email "action@github.com"
