@@ -85,6 +85,9 @@ jobs:
           attempt=0
           max_attempts=5
           success=false
+
+          # 尝试拉取远程更改并合并
+          git pull origin main || echo "No changes to pull or conflict occurred."
           
           while [ $attempt -lt $max_attempts ]; do
               git commit -m "Update AdBlock Host Rules with strict filtering" && success=true && break
@@ -95,7 +98,7 @@ jobs:
           
           if [ "$success" = true ]; then
               # 推送更改
-              git push
+              git push origin main
           else
               echo "Failed to commit after $max_attempts attempts."
           fi
