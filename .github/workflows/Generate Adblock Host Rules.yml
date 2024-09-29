@@ -1,4 +1,4 @@
-name: Generate Host Rules
+name: Generate Adblock Host Rules
 
 # 触发条件
 on:
