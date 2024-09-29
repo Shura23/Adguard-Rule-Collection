@@ -80,11 +80,8 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           
-          # 尝试拉取，避免冲突中断
-          git pull --rebase || { echo "Pull failed, attempting to resolve."; git add -A; git commit -m "Temporary commit to resolve conflicts" || echo "No changes to commit"; git pull --rebase; }
-          
-          # 检查并提交更改
-          git add ADBLOCK_RULE_COLLECTION_HOST.txt ADBLOCK_RULE_COLLECTION_HOST_Lite.txt
+          # 检查未暂存的更改并提交
+          git add -A  # 添加所有更改
           attempt=0
           max_attempts=5
           success=false
