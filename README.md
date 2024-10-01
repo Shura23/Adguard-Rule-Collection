@@ -39,14 +39,14 @@
   <tr>
     <td>完整版</td>
     <td>
-      <strong><a href="https://raw.githubusercontent.com/REIJI007/Adblock-Rule-Collection/main/ADBLOCK_RULE_COLLECTION.txt">Github链接</a></strong> | 
+      <strong><a href="https://raw.githubusercontent.com/REIJI007/Adblock-Rule-Collection/main/ADBLOCK_RULE_COLLECTION.txt">Github原始链接</a></strong> | 
       <strong><a href="https://adblock.miyajimareji007.workers.dev">Cloudflare加速链接</a></strong>
     </td>
   </tr>
   <tr>
     <td>精简版</td>
     <td>
-      <strong><a href="https://raw.githubusercontent.com/REIJI007/Adblock-Rule-Collection/main/ADBLOCK_RULE_COLLECTION_Lite.txt">Github链接</a></strong> | 
+      <strong><a href="https://raw.githubusercontent.com/REIJI007/Adblock-Rule-Collection/main/ADBLOCK_RULE_COLLECTION_Lite.txt">Github原始链接</a></strong> | 
       <strong><a href="https://adblocklite.miyajimareji007.workers.dev">Cloudflare加速链接</a></strong>
     </td>
   </tr>
@@ -63,14 +63,14 @@
   <tr>
     <td>完整版</td>
     <td>
-      <strong><a href="https://raw.githubusercontent.com/REIJI007/Adblock-Rule-Collection/main/ADBLOCK_RULE_COLLECTION_DNS.txt">Github链接</a></strong> | 
+      <strong><a href="https://raw.githubusercontent.com/REIJI007/Adblock-Rule-Collection/main/ADBLOCK_RULE_COLLECTION_DNS.txt">Github原始链接</a></strong> | 
       <strong><a href="https://adblockdns.miyajimareji007.workers.dev">Cloudflare加速链接</a></strong>
     </td>
   </tr>
   <tr>
     <td>精简版</td>
     <td>
-      <strong><a href="https://raw.githubusercontent.com/REIJI007/Adblock-Rule-Collection/main/ADBLOCK_RULE_COLLECTION_DNS_Lite.txt">Github链接</a></strong> | 
+      <strong><a href="https://raw.githubusercontent.com/REIJI007/Adblock-Rule-Collection/main/ADBLOCK_RULE_COLLECTION_DNS_Lite.txt">Github原始链接</a></strong> | 
       <strong><a href="https://adblockdnslite.miyajimareji007.workers.dev">Cloudflare加速链接</a></strong>
     </td>
   </tr>
