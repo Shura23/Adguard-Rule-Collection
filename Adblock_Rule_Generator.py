@@ -628,7 +628,8 @@ def main():
 "https://filters.adtidy.org/ios/filters/257_optimized.txt",
 "https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/Phishing-Angriffe",
 "https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/malware",
-"https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/spam.mails"
+"https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/spam.mails",
+"https://adaway.org/hosts.txt"
     ]
 
     # 设置保存文件路径
