@@ -410,8 +410,8 @@ def main():
 "https://filters.adtidy.org/ios/filters/251_optimized.txt",
 "https://filters.adtidy.org/ios/filters/255_optimized.txt",
 "https://filters.adtidy.org/ios/filters/256_optimized.txt",
-"https://filters.adtidy.org/ios/filters/257_optimized.txt"
-
+"https://filters.adtidy.org/ios/filters/257_optimized.txt",
+"https://adaway.org/hosts.txt"
     ]
 
     # 设置保存文件路径
