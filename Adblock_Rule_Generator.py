@@ -629,7 +629,8 @@ def main():
 "https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/Phishing-Angriffe",
 "https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/malware",
 "https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/spam.mails",
-"https://adaway.org/hosts.txt"
+"https://adaway.org/hosts.txt",
+"https://raw.githubusercontent.com/StevenBlack/hosts/master/data/StevenBlack/hosts"
     ]
 
     # 设置保存文件路径
