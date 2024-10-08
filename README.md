@@ -563,7 +563,7 @@
 445. [RPiList malware](https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/malware)
 446. [RPiList spam mails](https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/spam.mails)
 447. [adaway](https://adaway.org/hosts.txt)
-
+448. [StevenBlack](https://github.com/StevenBlack/hosts)
 
 </details>
 
@@ -608,6 +608,7 @@
 33. [Adblocker](https://adblockultimate.net/filters)
 34. [RPiList](https://github.com/RPiList/specials)
 35. [adaway](https://github.com/AdAway/AdAway)
+36. [StevenBlack](https://github.com/StevenBlack/hosts)
 
  </details>
 
