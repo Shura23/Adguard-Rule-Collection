@@ -184,7 +184,7 @@ def main():
     # 过滤器URL列表
     filter_urls = [
 "https://anti-ad.net/adguard.txt",
-"https://raw.githubusercontent.com/Shura23/adghRuleShura23/refs/heads/v2/rule/easylist.txt",
+#"https://raw.githubusercontent.com/Shura23/adghRuleShura23/refs/heads/v2/rule/easylist.txt",
 "https://anti-ad.net/easylist.txt",
 "https://small.oisd.nl",
 "https://big.oisd.nl",
