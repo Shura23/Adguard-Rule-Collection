@@ -1,10 +1,10 @@
 [![GPL 3.0 license](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://github.com/REIJI007/Adblock-Rule-Collection/blob/main/LICENSE-GPL%203.0)
 [![CC BY-NC-SA 4.0 license](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg)](https://github.com/REIJI007/Adblock-Rule-Collection/blob/main/LICENSE-CC-BY-NC-SA%204.0)
 <!-- 居中的大标题 -->
-<h1 align="center" style="font-size: 100px; margin-bottom: 40px;">Adblock-Rule-Collection</h1>
+<h1 align="center" style="font-size: 100px; margin-bottom: 40px;">Adguard-Rule-Collection</h1>
 
 <!-- 居中的副标题 -->
-<h2 align="center" style="font-size: 30px; margin-bottom: 40px;">一个将众多广告过滤器条目转化、去重、合并汇总生成的广告拦截器和DNS过滤器，规则总数多达百万，包含URL过滤规则、资源过滤规则、域名过滤规则、CSS选择器过滤规则、脚本过滤规则、隐私保护规则、Cookie过滤规则、白名单例外规则、关键字过滤规则、webrtc拦截规则、正则表达式过滤规则、网络过滤规则、字体和样式过滤规则、重定向拦截规则、脚本注入规则、反指纹跟踪规则、欺诈过滤规则、恶意网站过滤规则、网络钓鱼过滤规则、滥用网站过滤规则、挖矿过滤规则、垃圾邮件过滤规则、僵尸网络屏蔽规则、地理位置追踪屏蔽规则、视音频广告过滤规则、社交媒体插件过滤规则、点击劫持保护规则、弹窗过滤规则等类型的条目</h2>
+<h2 align="center" style="font-size: 20px; margin-bottom: 30px;">一个将众多广告过滤器条目转化、去重、合并汇总生成的广告拦截器和DNS过滤器，规则总数多达百万，包含URL过滤规则、资源过滤规则、域名过滤规则、CSS选择器过滤规则、脚本过滤规则、隐私保护规则、Cookie过滤规则、白名单例外规则、关键字过滤规则、webrtc拦截规则、正则表达式过滤规则、网络过滤规则、字体和样式过滤规则、重定向拦截规则、脚本注入规则、反指纹跟踪规则、欺诈过滤规则、恶意网站过滤规则、网络钓鱼过滤规则、滥用网站过滤规则、挖矿过滤规则、垃圾邮件过滤规则、僵尸网络屏蔽规则、地理位置追踪屏蔽规则、视音频广告过滤规则、社交媒体插件过滤规则、点击劫持保护规则、弹窗过滤规则等类型的条目</h2>
 
 <!-- 徽章（根据需要调整） -->
 <p align="center" style="margin-bottom: 40px;">
