@@ -55,7 +55,18 @@ def is_ip_address(line):
 def process_line(line):
     line = line.strip()
     
-    # 忽略IP和域名映射规则
+    # 忽略注释和空白行
+    if not is_valid_rule(line):
+        return None
+
+    # 处理Host文件的规则，仅转换以0.0.0.0或127.0.0.1开头的行
+    if line.startswith('0.0.0.0') or line.startswith('127.0.0.1'):
+        parts = line.split()
+        if len(parts) >= 2:  # 确保行中包含至少两个部分
+            second_part = parts[1].split('#')[0].strip()  # 移除注释和空白字符
+            return f"||{second_part}^"
+    
+    # 忽略IP和域名映射规则，避免二次处理
     if is_ip_domain_mapping(line):
         return None
     
@@ -63,15 +74,7 @@ def process_line(line):
     if is_ip_address(line):
         return f"||{line}^"
     
-    # 处理Host文件的规则，仅转换以0.0.0.0或127.0.0.1开头的行
-    if line.startswith('0.0.0.0') or line.startswith('127.0.0.1'):
-        parts = line.split()
-        if len(parts) >= 2:  # 确保行中包含IP地址和域名
-            domain = parts[1]
-            return f"||{domain}^"
-    
-    # 处理Dnsmasq规则，只处理将域名定向到127.0.0.1或0.0.0.0的情况
-    # 处理 address= 的情况
+    # 处理Dnsmasq规则，address= 和 server= 规则
     if line.startswith('address='):
         parts = line.split('=')
         if len(parts) == 3:
@@ -80,7 +83,6 @@ def process_line(line):
             if target_ip == '127.0.0.1' or target_ip == '0.0.0.0':
                 return f"||{domain}^"
 
-    # 处理 server= 的情况
     elif line.startswith('server='):
         parts = line.split('=', 1)
         if len(parts) == 2:
@@ -411,8 +413,7 @@ def main():
 "https://filters.adtidy.org/ios/filters/255_optimized.txt",
 "https://filters.adtidy.org/ios/filters/256_optimized.txt",
 "https://filters.adtidy.org/ios/filters/257_optimized.txt",
-"https://adaway.org/hosts.txt",
-"https://raw.githubusercontent.com/StevenBlack/hosts/master/data/StevenBlack/hosts"
+"https://adaway.org/hosts.txt"
     ]
 
     # 设置保存文件路径
