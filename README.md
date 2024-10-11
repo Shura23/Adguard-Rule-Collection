@@ -565,7 +565,7 @@
 445. [RPiList spam mails](https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/spam.mails)
 446. [adaway](https://raw.githubusercontent.com/AdAway/adaway.github.io/master/hosts.txt)
 447. [StevenBlack](https://github.com/StevenBlack/hosts)
-448. [WindowsSpyBlocker spy]https://raw.githubusercontent.com/crazy-max/WindowsSpyBlocker/master/data/hosts/spy.txt
+448. [WindowsSpyBlocker spy](https://raw.githubusercontent.com/crazy-max/WindowsSpyBlocker/master/data/hosts/spy.txt)
 449. [WindowsSpyBlocker spy-v6](https://raw.githubusercontent.com/crazy-max/WindowsSpyBlocker/master/data/hosts/spy_v6.txt)
 450. [WindowsSpyBlocker spy-extra](https://raw.githubusercontent.com/crazy-max/WindowsSpyBlocker/master/data/hosts/extra.txt)
 451. [WindowsSpyBlocker spy-extra-v6](https://raw.githubusercontent.com/crazy-max/WindowsSpyBlocker/master/data/hosts/extra_v6.txt)
