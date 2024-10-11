@@ -59,6 +59,10 @@ def process_line(line):
     if not is_valid_rule(line):
         return None
 
+    # 忽略IPv6地址的映射规则，例如 ::1 localhost
+    if line.startswith('::1'):
+        return None
+
     # 处理Host文件的规则，仅转换以0.0.0.0或127.0.0.1开头的行
     if line.startswith('0.0.0.0') or line.startswith('127.0.0.1'):
         parts = line.split()
