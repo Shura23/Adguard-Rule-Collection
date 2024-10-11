@@ -18,7 +18,6 @@ logging.basicConfig(filename='adblock_rule_downloader.log', level=logging.INFO,
 def install_packages(packages):
     # 检查并安装所需的Python包
     for package in packages:
-        # 如果包未安装，则安装该包
         if importlib.util.find_spec(package) is None:
             logging.info(f"Package '{package}' is not installed. Installing...")
             subprocess.run([sys.executable, "-m", "pip", "install", package], check=True)
@@ -26,65 +25,76 @@ def install_packages(packages):
         else:
             logging.info(f"Package '{package}' is already installed.")
 
-# 要确保安装的包列表
+# 确保安装的包列表
 required_packages = ["aiohttp", "urllib3", "certifi"]
 
-# 安装所需的包
 install_packages(required_packages)
 
-# 忽略不安全请求警告
 warnings.simplefilter('ignore', InsecureRequestWarning)
 
 # 判断是否为有效规则的行，去除注释和空白行
 def is_valid_rule(line):
-    line = line.strip()  # 去除首尾的空白字符
-    # 检查是否为空行或以特殊字符开头（表示注释或非规则行）
+    line = line.strip()
     if not line or line.startswith(('!', '#', '[', ';', '//', '/*', '*/')):
         return False
     return True
 
-# 判断是否为IP和域名映射规则
+# 判断是否为IPv4映射规则
 def is_ip_domain_mapping(line):
     return re.match(r'^\d{1,3}(\.\d{1,3}){3}\s+\S+', line) is not None
 
-# 判断是否为纯IP地址
+# 判断是否为纯IPv4地址
 def is_ip_address(line):
     return re.match(r'^\d{1,3}(\.\d{1,3}){3}$', line) is not None
+
+# 判断是否为IPv6映射规则
+def is_ipv6_domain_mapping(line):
+    return re.match(r'^[\da-fA-F:]+\s+\S+', line) is not None
+
+# 判断是否为纯IPv6地址
+def is_ipv6_address(line):
+    return re.match(r'^[\da-fA-F:]+$', line) is not None
 
 # 处理每一行规则，转换为统一格式
 def process_line(line):
     line = line.strip()
     
-    # 忽略注释和空白行
     if not is_valid_rule(line):
         return None
 
-    # 忽略IPv6地址的映射规则，例如 ::1 localhost
-    if line.startswith('::1'):
-        return None
-
-    # 处理Host文件的规则，仅转换以0.0.0.0或127.0.0.1开头的行
+    # 处理Host文件的规则
     if line.startswith('0.0.0.0') or line.startswith('127.0.0.1'):
         parts = line.split()
-        if len(parts) >= 2:  # 确保行中包含至少两个部分
-            second_part = parts[1].split('#')[0].strip()  # 移除注释和空白字符
+        if len(parts) >= 2:
+            second_part = parts[1].split('#')[0].strip()
             return f"||{second_part}^"
     
-    # 忽略IP和域名映射规则，避免二次处理
-    if is_ip_domain_mapping(line):
+    # 处理IPv6地址映射
+    if line.startswith('::') or is_ipv6_domain_mapping(line):
+        parts = line.split()
+        if len(parts) >= 2:
+            second_part = parts[1].split('#')[0].strip()
+            return f"||{second_part}^"
+
+    # 忽略IPv4和IPv6的域名映射
+    if is_ip_domain_mapping(line) or is_ipv6_domain_mapping(line):
         return None
-    
-    # 如果是纯IP地址，则返回特定格式的规则
+
+    # 处理纯IPv4地址
     if is_ip_address(line):
         return f"||{line}^"
     
-    # 处理Dnsmasq规则，address= 和 server= 规则
+    # 处理纯IPv6地址
+    if is_ipv6_address(line):
+        return f"||{line}^"
+
+    # 处理Dnsmasq规则，address= 和 server=
     if line.startswith('address='):
         parts = line.split('=')
         if len(parts) == 3:
             domain = parts[1]
             target_ip = parts[2]
-            if target_ip == '127.0.0.1' or target_ip == '0.0.0.0':
+            if target_ip in ['127.0.0.1', '0.0.0.0', '::1']:
                 return f"||{domain}^"
 
     elif line.startswith('server='):
@@ -94,42 +104,37 @@ def process_line(line):
             if len(server_info) == 3:
                 domain = server_info[1]
                 target_ip = server_info[2]
-                if target_ip == '127.0.0.1' or target_ip == '0.0.0.0':
+                if target_ip in ['127.0.0.1', '0.0.0.0', '::1']:
                     return f"||{domain}^"
     
-    # 忽略其他未处理的规则，返回原规则
     return line
 
 # 异步下载过滤器规则
 async def download_filter(session, url, retries=5):
-    rules = set()  # 存储下载的规则
+    rules = set()
     attempt = 0
-    # 重试机制
     while attempt < retries:
         try:
             async with session.get(url, ssl=False) as response:
                 logging.info(f"Downloading from {url}, attempt {attempt + 1}")
-                # 如果成功响应
                 if response.status == 200:
                     logging.info(f"Successfully downloaded from {url}")
                     text = await response.text()
-                    lines = text.splitlines()  # 分割每一行
-                    # 处理每一行规则
+                    lines = text.splitlines()
                     for line in lines:
                         line = line.strip()
-                        if is_valid_rule(line):  # 验证是否是有效规则
-                            processed_line = process_line(line)  # 处理规则
-                            if processed_line is not None:  # 忽略None值
-                                rules.add(processed_line)  # 添加到规则集合
+                        if is_valid_rule(line):
+                            processed_line = process_line(line)
+                            if processed_line is not None:
+                                rules.add(processed_line)
                     break
                 else:
                     logging.error(f"Failed to download from {url} with status code {response.status}")
         except Exception as e:
             logging.error(f"Error downloading {url}: {e}")
         attempt += 1
-        # 若重试次数未到最大，指数增加等待时间
         if attempt < retries:
-            wait_time = 2 ** attempt  # 指数回退时间
+            wait_time = 2 ** attempt
             logging.info(f"Retrying in {wait_time} seconds...")
             await asyncio.sleep(wait_time)
         else:
@@ -139,15 +144,14 @@ async def download_filter(session, url, retries=5):
 # 异步下载多个过滤器规则
 async def download_filters(urls):
     async with aiohttp.ClientSession() as session:
-        tasks = [download_filter(session, url) for url in urls]  # 为每个URL创建任务
+        tasks = [download_filter(session, url) for url in urls]
         all_rules = set()
-        # 等待所有任务完成
         for future in asyncio.as_completed(tasks):
             rules = await future
             all_rules.update(rules)
     return all_rules
 
-# 验证规则的有效性，移除无效规则
+# 验证规则的有效性
 def validate_rules(rules):
     validated_rules = set()
     for rule in rules:
@@ -155,39 +159,31 @@ def validate_rules(rules):
             validated_rules.add(rule)
     return validated_rules
 
-# 将规则写入文件，并在文件头添加信息
+# 将规则写入文件
 def write_rules_to_file(rules, save_path):
-    # 获取当前时间并设置为东八区时间
     now = datetime.now(timezone(timedelta(hours=8)))
-    timestamp = now.strftime('%Y-%m-%d %H:%M:%S %Z')  # 格式化时间戳
-
-    # 文件头部注释信息
+    timestamp = now.strftime('%Y-%m-%d %H:%M:%S %Z')
     header = f"""
-!Title: Adblock-Rule-Collection-Lite
-!Description: 一个汇总了多个广告过滤器过滤规则的广告过滤器订阅，每20分钟更新一次，确保即时同步上游减少误杀
+!Title: Adblock-Rule-Collection
+!Description: 汇总了多个广告过滤器过滤规则的广告过滤器订阅，每20分钟更新一次，确保即时同步上游减少误杀
 !Homepage: https://github.com/REIJI007/Adblock-Rule-Collection
-!LICENSE1: https://github.com/REIJI007/Adblock-Rule-Collection/blob/main/LICENSE-GPL 3.0
-!LICENSE2: https://github.com/REIJI007/Adblock-Rule-Collection/blob/main/LICENSE-CC-BY-NC-SA 4.0
 !生成时间: {timestamp}
 !有效规则数目: {len(rules)}
 """
-    # 将规则写入文件
     with open(save_path, 'w', encoding='utf-8') as f:
         logging.info(f"Writing {len(rules)} rules to file {save_path}")
         f.write(header)
         f.write('\n')
-        # 过滤掉None值，确保只写入有效的规则
         f.writelines(f"{rule}\n" for rule in sorted(rules) if rule is not None)
     logging.info(f"Successfully wrote rules to {save_path}")
     print(f"Successfully wrote rules to {save_path}")
     print(f"有效规则数目: {len(rules)}")
 
-# 主函数，负责执行流程
+# 主函数
 def main():
     logging.info("Starting to download filters...")
     print("Starting to download filters...")
 
-    # 过滤器URL列表
     filter_urls = [
 "https://anti-ad.net/adguard.txt",
 "https://anti-ad.net/easylist.txt",
@@ -420,22 +416,13 @@ def main():
 "https://adaway.org/hosts.txt"
     ]
 
-    # 设置保存文件路径
-    save_path = os.path.join(os.getcwd(), 'ADBLOCK_RULE_COLLECTION_Lite.txt')
-    
-    # 异步下载并处理过滤器规则
+    save_path = os.path.join(os.getcwd(), 'ADBLOCK_RULE_COLLECTION.txt')
     rules = asyncio.run(download_filters(filter_urls))
-
-    # 验证规则有效性
     validated_rules = validate_rules(rules)
-
-    # 将规则写入文件
     write_rules_to_file(validated_rules, save_path)
 
-# 如果脚本直接运行，调用main函数
 if __name__ == '__main__':
     main()
-    # 判断是否为交互模式
     if sys.stdin.isatty():
         input("Press Enter to exit...")
     else:
