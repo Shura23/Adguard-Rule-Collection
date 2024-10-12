@@ -185,6 +185,7 @@ def main():
     filter_urls = [
 "https://anti-ad.net/adguard.txt",
 "https://anti-ad.net/easylist.txt",
+"https://raw.githubusercontent.com/Shura23/adghRuleShura23/refs/heads/v2/rule/easylist.txt",
 "https://small.oisd.nl",
 "https://big.oisd.nl",
 "https://easylist.to/easylist/easylist.txt",
