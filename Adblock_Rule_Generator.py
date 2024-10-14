@@ -55,6 +55,12 @@ def is_ipv6_domain_mapping(line):
 def is_ipv6_address(line):
     return re.match(r'^[\da-fA-F:]+$', line) is not None
 
+# 判断是否为纯域名
+def is_domain(line):
+    # 检测是否是合法的域名
+    domain_pattern = r'^([a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}$'
+    return re.match(domain_pattern, line) is not None
+
 # 处理每一行规则，转换为统一格式
 def process_line(line):
     line = line.strip()
@@ -106,6 +112,10 @@ def process_line(line):
                 target_ip = server_info[2]
                 if target_ip in ['127.0.0.1', '0.0.0.0', '::1']:
                     return f"||{domain}^"
+    
+    # 处理纯域名
+    if is_domain(line):
+        return f"||{line}^"
     
     return line
 
@@ -637,7 +647,11 @@ def main():
 "https://raw.githubusercontent.com/crazy-max/WindowsSpyBlocker/master/data/hosts/extra.txt",
 "https://raw.githubusercontent.com/crazy-max/WindowsSpyBlocker/master/data/hosts/extra_v6.txt",
 "https://raw.githubusercontent.com/crazy-max/WindowsSpyBlocker/master/data/hosts/update.txt",
-"https://raw.githubusercontent.com/crazy-max/WindowsSpyBlocker/master/data/hosts/update_v6.txt"
+"https://raw.githubusercontent.com/crazy-max/WindowsSpyBlocker/master/data/hosts/update_v6.txt",
+"https://someonewhocares.org/hosts/hosts",
+"https://someonewhocares.org/hosts/ipv6/hosts",
+"https://phishing.army/download/phishing_army_blocklist.txt",
+"https://phishing.army/download/phishing_army_blocklist_extended.txt"
     ]
 
     save_path = os.path.join(os.getcwd(), 'ADBLOCK_RULE_COLLECTION.txt')
