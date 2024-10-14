@@ -174,7 +174,7 @@ def write_rules_to_file(rules, save_path):
     now = datetime.now(timezone(timedelta(hours=8)))
     timestamp = now.strftime('%Y-%m-%d %H:%M:%S %Z')
     header = f"""
-!Title: Adblock-Rule-Collection
+!Title: Adblock-Rule-Collection-Lite
 !Description: 一个汇总了多个广告过滤器过滤规则的广告过滤器订阅，每20分钟更新一次，确保即时同步上游减少误杀
 !Homepage: https://github.com/REIJI007/Adblock-Rule-Collection
 !生成时间: {timestamp}
@@ -426,7 +426,7 @@ def main():
 "https://adaway.org/hosts.txt"
     ]
 
-    save_path = os.path.join(os.getcwd(), 'ADBLOCK_RULE_COLLECTION.txt')
+    save_path = os.path.join(os.getcwd(), 'ADBLOCK_RULE_COLLECTION_Lite.txt')
     rules = asyncio.run(download_filters(filter_urls))
     validated_rules = validate_rules(rules)
     write_rules_to_file(validated_rules, save_path)
