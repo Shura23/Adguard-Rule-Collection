@@ -55,6 +55,12 @@ def is_ipv6_domain_mapping(line):
 def is_ipv6_address(line):
     return re.match(r'^[\da-fA-F:]+$', line) is not None
 
+# 判断是否为纯域名
+def is_domain(line):
+    # 检测是否是合法的域名
+    domain_pattern = r'^([a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}$'
+    return re.match(domain_pattern, line) is not None
+
 # 处理每一行规则，转换为统一格式
 def process_line(line):
     line = line.strip()
@@ -69,7 +75,7 @@ def process_line(line):
             second_part = parts[1].split('#')[0].strip()
             return f"||{second_part}^"
     
-    # 处理IPv6地址映射
+    # 处理Host文件IPv6地址映射
     if line.startswith('::') or is_ipv6_domain_mapping(line):
         parts = line.split()
         if len(parts) >= 2:
@@ -106,6 +112,10 @@ def process_line(line):
                 target_ip = server_info[2]
                 if target_ip in ['127.0.0.1', '0.0.0.0', '::1']:
                     return f"||{domain}^"
+    
+    # 处理纯域名
+    if is_domain(line):
+        return f"||{line}^"
     
     return line
 
@@ -164,7 +174,7 @@ def write_rules_to_file(rules, save_path):
     now = datetime.now(timezone(timedelta(hours=8)))
     timestamp = now.strftime('%Y-%m-%d %H:%M:%S %Z')
     header = f"""
-!Title: Adblock-Rule-Collection-Lite
+!Title: Adblock-Rule-Collection
 !Description: 一个汇总了多个广告过滤器过滤规则的广告过滤器订阅，每20分钟更新一次，确保即时同步上游减少误杀
 !Homepage: https://github.com/REIJI007/Adblock-Rule-Collection
 !生成时间: {timestamp}
@@ -416,7 +426,7 @@ def main():
 "https://adaway.org/hosts.txt"
     ]
 
-    save_path = os.path.join(os.getcwd(), 'ADBLOCK_RULE_COLLECTION_Lite.txt')
+    save_path = os.path.join(os.getcwd(), 'ADBLOCK_RULE_COLLECTION.txt')
     rules = asyncio.run(download_filters(filter_urls))
     validated_rules = validate_rules(rules)
     write_rules_to_file(validated_rules, save_path)
