@@ -571,6 +571,10 @@
 451. [WindowsSpyBlocker spy-extra-v6](https://raw.githubusercontent.com/crazy-max/WindowsSpyBlocker/master/data/hosts/extra_v6.txt)
 452. [WindowsSpyBlocker update rules](https://raw.githubusercontent.com/crazy-max/WindowsSpyBlocker/master/data/hosts/update.txt)
 453. [WindowsSpyBlocker update IPv6 rules](https://raw.githubusercontent.com/crazy-max/WindowsSpyBlocker/master/data/hosts/update_v6.txt)
+454. [DanPollock_hosts](https://someonewhocares.org/hosts/hosts)
+455. [DanPollock_hosts_ipv6](https://someonewhocares.org/hosts/ipv6/hosts)
+456. [phishing_army_blocklist](https://phishing.army/download/phishing_army_blocklist.txt)
+457. [phishing_army_blocklist_extended](https://phishing.army/download/phishing_army_blocklist_extended.txt)
 
 
 </details>
@@ -616,8 +620,11 @@
 34. [adaway](https://github.com/AdAway/AdAway)
 35. [StevenBlack](https://github.com/StevenBlack/hosts)
 37. [WindowsSpyBlocker](https://github.com/crazy-max/WindowsSpyBlocker)
+38. [DanPollock](https://someonewhocares.org)
+39. [phishing army](https://www.phishing.army)
 
-</details>
+  </details>
+
 
 
 <br>
