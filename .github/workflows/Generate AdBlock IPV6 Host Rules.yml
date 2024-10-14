@@ -1,4 +1,4 @@
-name: Generate AdBlock Host Rules
+name: Generate AdBlock IPV6 Host Rules
 
 # 触发条件
 on:
