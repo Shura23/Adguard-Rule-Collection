@@ -140,6 +140,8 @@
 
 引用列表如下：
 
+引用列表如下：
+
 1. [Anti-ad for ADguard](https://anti-ad.net/adguard.txt)  
 2. [Anti-ad-Easylist](https://anti-ad.net/easylist.txt)
 3. [OISD Small List](https://small.oisd.nl)
@@ -597,7 +599,9 @@
 455. [DanPollock_hosts_ipv6](https://someonewhocares.org/hosts/ipv6/hosts)
 456. [phishing_army_blocklist](https://phishing.army/download/phishing_army_blocklist.txt)
 457. [phishing_army_blocklist_extended](https://phishing.army/download/phishing_army_blocklist_extended.txt)
-
+458. [1024_hosts](https://raw.githubusercontent.com/Goooler/1024_hosts/master/hosts)
+459. [neohosts full list](https://raw.githubusercontent.com/neoFelhz/neohosts/gh-pages/full/hosts.txt)
+460. [neohosts base list](https://raw.githubusercontent.com/neoFelhz/neohosts/gh-pages/basic/hosts.txt)
 
 </details>
 
@@ -644,9 +648,10 @@
 37. [WindowsSpyBlocker](https://github.com/crazy-max/WindowsSpyBlocker)
 38. [DanPollock](https://someonewhocares.org)
 39. [phishing army](https://www.phishing.army)
+40. [1024_hosts](https://github.com/Goooler/1024_hosts)
+41. [neohosts](https://github.com/neoFelhz/neohosts)
 
   </details>
-
 
 
 <br>
