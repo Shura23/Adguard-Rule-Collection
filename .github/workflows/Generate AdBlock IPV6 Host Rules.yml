@@ -36,7 +36,7 @@ jobs:
 
           # DNS域名验证正则表达式，符合DNS规范
           dns_domain_regex = re.compile(
-              r'^(?!-)[A-Za-z0-9-]{1,63}(?<!-)(\.[A-Za-z]{2,})+$'
+              r'^(?!-)[A-Za-z0-9-]{1,63}(?<!-)(\.[A-Za-z0-9-]{1,63})*\.[A-Za-z]{2,}$'
           )
 
           def process_file(input_file, output_file, title):
