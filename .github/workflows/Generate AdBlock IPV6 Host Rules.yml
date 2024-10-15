@@ -34,6 +34,11 @@ jobs:
           import pytz
           import re
 
+          # DNS域名验证正则表达式，符合DNS规范
+          dns_domain_regex = re.compile(
+              r'^(?!-)[A-Za-z0-9-]{1,63}(?<!-)(\.[A-Za-z]{2,})+$'
+          )
+
           def process_file(input_file, output_file, title):
               # 读取输入文件并严格过滤规则
               with open(input_file, 'r', encoding='utf-8') as f:
@@ -44,8 +49,8 @@ jobs:
                       match = re.match(r'^\|\|([a-zA-Z0-9.-]+)\^$', line)
                       if match:
                           domain = match.group(1)
-                          # 确保不处理任何IP地址
-                          if not re.match(r'^\d+\.\d+\.\d+\.\d+$', domain):
+                          # 确保不处理任何IP地址，并验证是否符合DNS域名规范
+                          if not re.match(r'^\d+\.\d+\.\d+\.\d+$', domain) and dns_domain_regex.match(domain):
                               # 使用IPv6屏蔽格式 ":: domain"
                               rules.append(f":: {domain}")
               
