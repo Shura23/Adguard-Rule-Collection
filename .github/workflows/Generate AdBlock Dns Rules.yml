@@ -34,15 +34,24 @@ jobs:
           import pytz
           import re
 
+          # DNS域名验证正则表达式，符合DNS规范
+          dns_domain_regex = re.compile(
+              r'^(?!-)[A-Za-z0-9-]{1,63}(?<!-)(\.[A-Za-z]{2,})+$'
+          )
+
           def process_file(input_file, output_file, title):
               # 读取输入文件并严格过滤规则
               with open(input_file, 'r', encoding='utf-8') as f:
                   rules = []
                   for line in f:
                       line = line.strip()
-                      # 严格匹配 "||<域名>^" 或 "@@||<域名>^" 格式的规则
-                      if re.match(r'^(\@\@)?\|\|[a-zA-Z0-9.-]+\^$', line):
-                          rules.append(line)
+                      # 严格匹配 "||<域名>^" 或 "@@||<域名>^" 格式，验证域名规范
+                      match = re.match(r'^(\@\@)?\|\|([a-zA-Z0-9.-]+)\^$', line)
+                      if match:
+                          domain = match.group(2)
+                          # 确保域名符合DNS规范
+                          if dns_domain_regex.match(domain):
+                              rules.append(line)
               
               # 生成东八区（上海）时间戳
               tz = pytz.timezone('Asia/Shanghai')
