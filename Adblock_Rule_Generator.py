@@ -667,7 +667,6 @@ def main():
 "https://raw.githubusercontent.com/neoFelhz/neohosts/gh-pages/full/hosts.txt",
 "https://raw.githubusercontent.com/neoFelhz/neohosts/gh-pages/basic/hosts.txt",
 "https://raw.githubusercontent.com/jdlingyu/ad-wars/refs/heads/master/hosts",
-"https://winhelp2002.mvps.org/hosts.txt",
 "https://raw.githubusercontent.com/Noyllopa/NoAppDownload/master/NoAppDownload.txt",
 "https://gitlab.com/ZeroDot1/CoinBlockerLists/-/raw/master/hosts",
 "https://gitlab.com/ZeroDot1/CoinBlockerLists/-/raw/master/hosts_optional",
