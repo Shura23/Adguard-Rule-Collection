@@ -137,8 +137,8 @@
 <details>
   <summary>规则列表</summary>
 
-1. [Adaway](https://adaway.org/hosts.txt)
-2. [urlhaus](https://urlhaus.abuse.ch/downloads/hostfile)
+1. [URLhaus](https://urlhaus.abuse.ch/downloads/hostfile)
+2. [Adaway](https://adaway.org/hosts.txt)
 3. [ADguard Base filter](https://raw.githubusercontent.com/AdguardTeam/FiltersRegistry/master/filters/filter_2_Base/filter.txt)
 4. [ADguard Spyware filter](https://raw.githubusercontent.com/AdguardTeam/FiltersRegistry/master/filters/filter_3_Spyware/filter.txt)
 5. [ADguard Social filter](https://raw.githubusercontent.com/AdguardTeam/FiltersRegistry/master/filters/filter_4_Social/filter.txt)
