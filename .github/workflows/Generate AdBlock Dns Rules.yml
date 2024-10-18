@@ -87,12 +87,14 @@ jobs:
           
           # 添加所有更改
           git add -A
+          
           attempt=0
           max_attempts=5
           success=false
           
           # 尝试拉取远程更改并合并
-          git pull origin main || echo "No changes to pull or conflict occurred."
+          git fetch origin main  # 拉取远程main分支的更改
+          git merge --no-edit origin/main || echo "No changes to merge or conflict occurred."
           
           while [ $attempt -lt $max_attempts ]; do
               git commit -m "Update AdBlock DNS Rules with strict filtering" && success=true && break
