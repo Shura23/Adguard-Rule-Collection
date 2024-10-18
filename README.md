@@ -522,10 +522,10 @@
 383. [Malicious URL Blocklist——ADguard](https://malware-filter.gitlab.io/malware-filter/urlhaus-filter-ag.txt)  
 384. [Malicious URL Blocklist——ADguard Home](https://malware-filter.gitlab.io/malware-filter/urlhaus-filter-agh.txt)  
 385. [Malicious URL Blocklist——uBlock Origin](https://malware-filter.gitlab.io/malware-filter/urlhaus-filter.txt)  
-386. [Botnet IP Blocklist——ADguard](https://malware-filter.gitlab.io/malware-filter/botnet-filter-ag.txt)  
-387. [Botnet IP Blocklist——ADguard Home](https://malware-filter.gitlab.io/malware-filter/botnet-filter-agh.txt)  
-388. [Botnet IP Blocklist——uBlock Origin](https://malware-filter.gitlab.io/malware-filter/botnet-filter.txt)  
-389. [Tracking JS Blocklist](https://malware-filter.gitlab.io/malware-filter/tracking-filter.txt)  
+386. [Malicious Botnet IP Blocklist——ADguard](https://malware-filter.gitlab.io/malware-filter/botnet-filter-ag.txt)  
+387. [Malicious Botnet IP Blocklist——ADguard Home](https://malware-filter.gitlab.io/malware-filter/botnet-filter-agh.txt)  
+388. [Malicious Botnet IP Blocklist——uBlock Origin](https://malware-filter.gitlab.io/malware-filter/botnet-filter.txt)  
+389. [Malicious Tracking JS Blocklist](https://malware-filter.gitlab.io/malware-filter/tracking-filter.txt)  
 390. [abp-filters-anti-cv (English)](https://gitlab.com/eyeo/anti-cv/abp-filters-anti-cv/-/raw/master/english.txt)  
 391. [abp-filters-anti-cv (Chinese)](https://gitlab.com/eyeo/anti-cv/abp-filters-anti-cv/-/raw/master/chinese.txt)  
 392. [phishing_army_blocklist](https://phishing.army/download/phishing_army_blocklist.txt)  
@@ -591,9 +591,7 @@
 452. [Peter Lowe’s Ad and Tracking Server List](https://pgl.yoyo.org/adservers/serverlist.php?hostformat=adblockplus&showintro=0)   
 453. [neodevpro's adblock list](https://raw.githubusercontent.com/neodevpro/neodevhost/master/adblocker)   
 454. [Steven Black's ad-hoc list](https://raw.githubusercontent.com/StevenBlack/hosts/master/data/StevenBlack/hosts)
-455. [Mvps'host](https://winhelp2002.mvps.org/hosts.txt) 
-
-
+455. [Mvps'host](https://winhelp2002.mvps.org/hosts.txt)
 
 </details>
 
