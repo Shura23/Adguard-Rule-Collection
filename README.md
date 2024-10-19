@@ -124,6 +124,30 @@
   </tr>
 </table>
 
+<br>
+
+*拦截域名列表*
+<table border="1" style="border-collapse: collapse; width: 100%;">
+  <tr>
+    <th>版本</th>
+    <th>链接</th>
+  </tr>
+  <tr>
+    <td>完整版</td>
+    <td>
+      <strong><a href="https://raw.githubusercontent.com/REIJI007/Adblock-Rule-Collection/main/ADBLOCK_RULE_COLLECTION_DOMAIN.txt">Github原始链接</a></strong> | 
+      <strong><a href="www.adblock-domain.reiji007.org">Cloudflare加速链接</a></strong>
+    </td>
+  </tr>
+  <tr>
+    <td>精简版</td>
+    <td>
+      <strong><a href="https://raw.githubusercontent.com/REIJI007/Adblock-Rule-Collection/main/ADBLOCK_RULE_COLLECTION_DOMAIN_Lite.txt">Github原始链接</a></strong> | 
+      <strong><a href="www.adblock-domain-Lite.reiji007.org">Cloudflare加速链接</a></strong>
+    </td>
+  </tr>
+</table>
+
 2、从Release中下载过滤器文件进行本地导入过滤器，release每20分钟自动发布一次
 <hr>
 
