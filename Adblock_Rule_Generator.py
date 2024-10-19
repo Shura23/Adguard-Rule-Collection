@@ -589,7 +589,10 @@ def main():
 "https://raw.githubusercontent.com/Spam404/lists/master/adblock-list.txt",
 "https://raw.githubusercontent.com/Spam404/lists/master/main-blacklist.txt",
 "https://raw.githubusercontent.com/durablenapkin/scamblocklist/master/adguard.txt",
-"https://raw.githubusercontent.com/durablenapkin/scamblocklist/master/hosts.txt"
+"https://raw.githubusercontent.com/durablenapkin/scamblocklist/master/hosts.txt",
+"https://raw.githubusercontent.com/hoshsadiq/adblock-nocoin-list/master/nocoin.txt",
+"https://raw.githubusercontent.com/hoshsadiq/adblock-nocoin-list/master/hosts.txt",
+"https://raw.githubusercontent.com/hoshsadiq/adblock-nocoin-list/master/nocoin-ublock.txt"
     ]
 
     save_path = os.path.join(os.getcwd(), 'ADBLOCK_RULE_COLLECTION.txt')
