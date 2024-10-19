@@ -541,12 +541,6 @@ def main():
 "https://raw.githubusercontent.com/easylist/easylist/master/easylist_cookie/easylist_cookie_general_hide.txt",
 "https://raw.githubusercontent.com/easylist/easylist/master/easylist_cookie/easylist_cookie_thirdparty.txt",
 "https://raw.githubusercontent.com/easylist/easylistchina/master/easylistchina.txt",
-"https://raw.githubusercontent.com/brave/adblock-lists/master/brave-lists/brave-specific.txt",
-"https://raw.githubusercontent.com/brave/adblock-lists/master/brave-lists/brave-ios-specific.txt",
-"https://raw.githubusercontent.com/brave/adblock-lists/master/brave-lists/brave-android-specific.txt",
-"https://raw.githubusercontent.com/brave/adblock-lists/master/brave-lists/brave-firstparty.txt",
-"https://raw.githubusercontent.com/brave/adblock-lists/master/brave-lists/brave-firstparty-cname.txt",
-"https://raw.githubusercontent.com/brave/adblock-lists/master/brave-unbreak.txt",
 "https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/filters.txt",
 "https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/privacy.txt",
 "https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/filters-mobile.txt",
@@ -577,17 +571,25 @@ def main():
 "https://malware-filter.gitlab.io/malware-filter/botnet-filter-agh.txt",
 "https://malware-filter.gitlab.io/malware-filter/botnet-filter.txt",
 "https://malware-filter.gitlab.io/malware-filter/tracking-filter.txt",
-"https://gitlab.com/eyeo/anti-cv/abp-filters-anti-cv/-/raw/master/english.txt",
-"https://gitlab.com/eyeo/anti-cv/abp-filters-anti-cv/-/raw/master/chinese.txt",
 "https://phishing.army/download/phishing_army_blocklist.txt",
 "https://phishing.army/download/phishing_army_blocklist_extended.txt"
 "https://gitlab.com/ZeroDot1/CoinBlockerLists/-/raw/master/hosts",
 "https://gitlab.com/ZeroDot1/CoinBlockerLists/-/raw/master/hosts_browser",
 "https://gitlab.com/ZeroDot1/CoinBlockerLists/-/raw/master/hosts_optional",
+"https://raw.githubusercontent.com/crazy-max/WindowsSpyBlocker/master/data/hosts/spy.txt",
+"https://raw.githubusercontent.com/crazy-max/WindowsSpyBlocker/master/data/hosts/spy_v6.txt",
+"https://raw.githubusercontent.com/crazy-max/WindowsSpyBlocker/master/data/hosts/extra.txt",
+"https://raw.githubusercontent.com/crazy-max/WindowsSpyBlocker/master/data/hosts/extra_v6.txt",
+"https://raw.githubusercontent.com/crazy-max/WindowsSpyBlocker/master/data/hosts/update.txt",
+"https://raw.githubusercontent.com/crazy-max/WindowsSpyBlocker/master/data/hosts/update_v6.txt",
 "https://gitlab.com/quidsup/notrack-blocklists/-/raw/master/malware.hosts",
 "https://gitlab.com/quidsup/notrack-blocklists/-/raw/master/malware.list",
 "https://gitlab.com/quidsup/notrack-blocklists/-/raw/master/trackers.hosts",
-"https://gitlab.com/quidsup/notrack-blocklists/-/raw/master/trackers.list"
+"https://gitlab.com/quidsup/notrack-blocklists/-/raw/master/trackers.list",
+"https://raw.githubusercontent.com/Spam404/lists/master/adblock-list.txt",
+"https://raw.githubusercontent.com/Spam404/lists/master/main-blacklist.txt",
+"https://raw.githubusercontent.com/durablenapkin/scamblocklist/master/adguard.txt",
+"https://raw.githubusercontent.com/durablenapkin/scamblocklist/master/hosts.txt"
     ]
 
     save_path = os.path.join(os.getcwd(), 'ADBLOCK_RULE_COLLECTION.txt')
