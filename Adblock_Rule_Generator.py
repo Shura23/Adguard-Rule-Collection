@@ -100,7 +100,7 @@ def process_line(line):
         if len(parts) == 3:
             domain = parts[1]
             target_ip = parts[2]
-            if target_ip in ['127.0.0.1', '0.0.0.0', '::1']:
+            if target_ip in ['127.0.0.1', '0.0.0.0', '::1', '::']:
                 return f"||{domain}^"
 
     elif line.startswith('server='):
@@ -110,7 +110,7 @@ def process_line(line):
             if len(server_info) == 3:
                 domain = server_info[1]
                 target_ip = server_info[2]
-                if target_ip in ['127.0.0.1', '0.0.0.0', '::1']:
+                if target_ip in ['127.0.0.1', '0.0.0.0', '::1', '::']:
                     return f"||{domain}^"
     
     # 处理纯域名
