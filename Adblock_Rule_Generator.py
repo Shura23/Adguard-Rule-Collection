@@ -655,14 +655,7 @@ def main():
 "https://gitlab.com/quidsup/notrack-blocklists/-/raw/master/malware.hosts",
 "https://gitlab.com/quidsup/notrack-blocklists/-/raw/master/malware.list",
 "https://gitlab.com/quidsup/notrack-blocklists/-/raw/master/trackers.hosts",
-"https://gitlab.com/quidsup/notrack-blocklists/-/raw/master/trackers.list",
-"https://raw.githubusercontent.com/anudeepND/blacklist/master/adservers.txt",
-"https://www.github.developerdan.com/hosts/lists/ads-and-tracking-extended.txt",
-"https://urlhaus.abuse.ch/downloads/hostfile",
-"https://pgl.yoyo.org/adservers/serverlist.php?hostformat=adblockplus&showintro=0",
-"https://raw.githubusercontent.com/neodevpro/neodevhost/master/adblocker",
-"https://raw.githubusercontent.com/StevenBlack/hosts/master/data/StevenBlack/hosts",
-"https://winhelp2002.mvps.org/hosts.txt"
+"https://gitlab.com/quidsup/notrack-blocklists/-/raw/master/trackers.list"
     ]
 
     save_path = os.path.join(os.getcwd(), 'ADBLOCK_RULE_COLLECTION.txt')
