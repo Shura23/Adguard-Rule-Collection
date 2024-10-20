@@ -40,24 +40,19 @@ jobs:
           )
 
           def process_file(input_file, output_file, title):
-              # 读取输入文件并严格过滤规则
               with open(input_file, 'r', encoding='utf-8') as f:
                   rules = []
                   for line in f:
                       line = line.strip()
-                      # 严格匹配 "||<域名>^" 或 "@@||<域名>^" 格式，验证域名规范
                       match = re.match(r'^(\@\@)?\|\|([a-zA-Z0-9.-]+)\^$', line)
                       if match:
                           domain = match.group(2)
-                          # 确保域名符合DNS规范
                           if dns_domain_regex.match(domain):
                               rules.append(line)
               
-              # 生成东八区（上海）时间戳
               tz = pytz.timezone('Asia/Shanghai')
               timestamp = datetime.datetime.now(tz).strftime('%Y-%m-%d %H:%M:%S')
               
-              # 创建文件头注释
               header = f"""!Title: {title}
           !Description: 一个汇总了多个广告过滤器过滤规则的DNS过滤器订阅，每20分钟更新一次，确保即时同步上游减少误杀
           !Homepage: https://github.com/REIJI007/Adblock-Rule-Collection
@@ -67,14 +62,12 @@ jobs:
           !有效规则数目: {len(rules)}
           """
               
-              # 写入输出文件
               with open(output_file, 'w', encoding='utf-8') as f:
                   f.write(header + '\n')
                   f.write('\n'.join(rules))
               
               print(f"Processed {input_file}. Total rules: {len(rules)}")
 
-          # 处理两个输入文件
           process_file('ADBLOCK_RULE_COLLECTION.txt', 'ADBLOCK_RULE_COLLECTION_DNS.txt', 'Adblock-Rule-Collection-Dns')
           process_file('ADBLOCK_RULE_COLLECTION_Lite.txt', 'ADBLOCK_RULE_COLLECTION_DNS_Lite.txt', 'Adblock-Rule-Collection-Dns-Lite')
           EOF
@@ -85,15 +78,13 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           
-          # 添加所有更改
           git add -A
           
           attempt=0
           max_attempts=5
           success=false
           
-          # 尝试拉取远程更改并合并
-          git fetch origin main  # 拉取远程main分支的更改
+          git fetch origin main  
           git merge origin/main --strategy-option=ours || git merge --abort || echo "Merge conflicts resolved automatically using 'ours' strategy."
 
           while [ $attempt -lt $max_attempts ]; do
@@ -114,12 +105,12 @@ jobs:
               done
               
               if [ "$success" = false ]; then
-                  echo "Failed to push after $max_attempts attempts."
-                  exit 1
+                  echo "Push failed after $max_attempts attempts. Continuing workflow."
+              else
+                  echo "Push successful."
               fi
           else
-              echo "Failed to commit after $max_attempts attempts."
-              exit 1
+              echo "Commit failed after $max_attempts attempts. Continuing workflow."
           fi
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN }}
