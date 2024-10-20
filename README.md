@@ -136,14 +136,14 @@
     <td>完整版</td>
     <td>
       <strong><a href="https://raw.githubusercontent.com/REIJI007/Adblock-Rule-Collection/main/ADBLOCK_RULE_COLLECTION_DOMAIN.txt">Github原始链接</a></strong> | 
-      <strong><a href="www.adblock-domain.reiji007.org">Cloudflare加速链接</a></strong>
+      <strong><a href="https://www.adblock-domain.reiji007.org">Cloudflare加速链接</a></strong>
     </td>
   </tr>
   <tr>
     <td>精简版</td>
     <td>
       <strong><a href="https://raw.githubusercontent.com/REIJI007/Adblock-Rule-Collection/main/ADBLOCK_RULE_COLLECTION_DOMAIN_Lite.txt">Github原始链接</a></strong> | 
-      <strong><a href="www.adblock-domain-lite.reiji007.org">Cloudflare加速链接</a></strong>
+      <strong><a href="https://www.adblock-domain-lite.reiji007.org">Cloudflare加速链接</a></strong>
     </td>
   </tr>
 </table>
