@@ -171,10 +171,7 @@
 6. [blocklist project](https://github.com/blocklistproject/Lists)
 7. [malware-filter](https://gitlab.com/malware-filter)
 8. [phishing army](https://www.phishing.army)
-12. [spam404](https://github.com/Spam404/lists)
-13. [scamblocklist](https://github.com/durablenapkin/scamblocklist)
-14. [nocoin](https://github.com/hoshsadiq/adblock-nocoin-list)
-10. [WindowsSpyBlocker](https://github.com/crazy-max/WindowsSpyBlocker)
+9. [WindowsSpyBlocker](https://github.com/crazy-max/WindowsSpyBlocker)
 
 </details>
 
