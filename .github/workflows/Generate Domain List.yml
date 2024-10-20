@@ -86,17 +86,17 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           
-          # 检查未暂存的更改并提交
-          git add -A  # 添加所有更改
+          # 添加所有更改
+          git add -A
           
           attempt=0
           max_attempts=5
           success=false
-
+          
           # 尝试拉取远程更改并合并
           git fetch origin main  # 拉取远程main分支的更改
-          git merge --no-edit origin/main || echo "No changes to merge or conflict occurred."
-          
+          git merge origin/main --strategy-option=ours || git merge --abort || echo "Merge conflicts resolved automatically using 'ours' strategy."
+
           while [ $attempt -lt $max_attempts ]; do
               git commit -m "Update AdBlock Domain Rules with strict filtering" && success=true && break
               attempt=$((attempt + 1))
@@ -105,8 +105,8 @@ jobs:
           done
           
           if [ "$success" = true ]; then
-              # 推送更改
-              git push origin main
+              # 强制推送更改
+              git push --force origin main
           else
               echo "Failed to commit after $max_attempts attempts."
           fi
