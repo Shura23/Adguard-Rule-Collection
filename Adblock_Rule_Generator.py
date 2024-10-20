@@ -68,21 +68,21 @@ def process_line(line):
     if not is_valid_rule(line):
         return None
 
-    # 处理Host文件的规则
+    # 处理IPv4地址映射：0.0.0.0 和 127.0.0.1
     if line.startswith('0.0.0.0') or line.startswith('127.0.0.1'):
         parts = line.split()
         if len(parts) >= 2:
-            second_part = parts[1].split('#')[0].strip()
-            return f"||{second_part}^"
+            domain = parts[1].split('#')[0].strip()
+            return f"||{domain}^"
     
-    # 处理Host文件IPv6地址映射
-    if line.startswith('::') or is_ipv6_domain_mapping(line):
+    # 处理IPv6地址映射：:: 和 ::1
+    if line.startswith('::') or line.startswith('::1'):
         parts = line.split()
         if len(parts) >= 2:
-            second_part = parts[1].split('#')[0].strip()
-            return f"||{second_part}^"
+            domain = parts[1].split('#')[0].strip()
+            return f"||{domain}^"
 
-    # 忽略IPv4和IPv6的域名映射
+    # 忽略其他IPv4和IPv6域名映射
     if is_ip_domain_mapping(line) or is_ipv6_domain_mapping(line):
         return None
 
@@ -94,12 +94,12 @@ def process_line(line):
     if is_ipv6_address(line):
         return f"||{line}^"
 
-    # 处理Dnsmasq规则，address= 和 server=
+    # 处理Dnsmasq规则，address= 和 server=，添加对 IPv4 和 IPv6 的处理
     if line.startswith('address='):
-        parts = line.split('=')
+        parts = line.split('=')  
         if len(parts) == 3:
-            domain = parts[1]
-            target_ip = parts[2]
+            domain = parts[1].strip()
+            target_ip = parts[2].strip()
             if target_ip in ['127.0.0.1', '0.0.0.0', '::1', '::']:
                 return f"||{domain}^"
 
@@ -108,8 +108,8 @@ def process_line(line):
         if len(parts) == 2:
             server_info = parts[1].split('/')
             if len(server_info) == 3:
-                domain = server_info[1]
-                target_ip = server_info[2]
+                domain = server_info[1].strip()
+                target_ip = server_info[2].strip()
                 if target_ip in ['127.0.0.1', '0.0.0.0', '::1', '::']:
                     return f"||{domain}^"
     
@@ -118,6 +118,7 @@ def process_line(line):
         return f"||{line}^"
     
     return line
+
 
 # 异步下载过滤器规则
 async def download_filter(session, url, retries=5):
