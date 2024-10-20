@@ -107,8 +107,8 @@ jobs:
           done
           
           if [ "$success" = true ]; then
-              # 推送更改
-              git push origin main
+              # 强制推送更改
+              git push --force origin main
           else
               echo "Failed to commit after $max_attempts attempts."
           fi
