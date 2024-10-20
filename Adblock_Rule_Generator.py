@@ -574,13 +574,6 @@ def main():
 "https://malware-filter.gitlab.io/malware-filter/tracking-filter.txt",
 "https://phishing.army/download/phishing_army_blocklist.txt",
 "https://phishing.army/download/phishing_army_blocklist_extended.txt",
-"https://raw.githubusercontent.com/Spam404/lists/master/adblock-list.txt",
-"https://raw.githubusercontent.com/Spam404/lists/master/main-blacklist.txt",
-"https://raw.githubusercontent.com/durablenapkin/scamblocklist/master/adguard.txt",
-"https://raw.githubusercontent.com/durablenapkin/scamblocklist/master/hosts.txt",
-"https://raw.githubusercontent.com/hoshsadiq/adblock-nocoin-list/master/nocoin.txt",
-"https://raw.githubusercontent.com/hoshsadiq/adblock-nocoin-list/master/hosts.txt",
-"https://raw.githubusercontent.com/hoshsadiq/adblock-nocoin-list/master/nocoin-ublock.txt"
 "https://raw.githubusercontent.com/crazy-max/WindowsSpyBlocker/master/data/hosts/spy.txt",
 "https://raw.githubusercontent.com/crazy-max/WindowsSpyBlocker/master/data/hosts/spy_v6.txt",
 "https://raw.githubusercontent.com/crazy-max/WindowsSpyBlocker/master/data/hosts/extra.txt",
