@@ -94,10 +94,12 @@ jobs:
           max_attempts=5
           success=false
 
-          # 尝试拉取远程更改并合并
+          # 拉取远程更改并合并，避免冲突
           git fetch origin main  # 拉取远程main分支的更改
-          git merge --no-edit origin/main || echo "No changes to merge or conflict occurred."
           
+          # 自动解决简单的合并冲突
+          git merge origin/main --strategy-option=ours || git merge --abort || echo "Merge conflicts resolved automatically using 'ours' strategy."
+
           while [ $attempt -lt $max_attempts ]; do
               git commit -m "Update AdBlock Host Rules with IPv6 format" && success=true && break
               attempt=$((attempt + 1))
