@@ -178,8 +178,8 @@ def write_rules_to_file(rules, save_path):
 !Title: Adblock-Rule-Collection
 !Description: 一个汇总了多个广告过滤器过滤规则的广告过滤器订阅，每20分钟更新一次，确保即时同步上游减少误杀
 !Homepage: https://github.com/REIJI007/Adblock-Rule-Collection
-!LICENSE: https://github.com/REIJI007/Adblock-Rule-Collection/LICENSE-GPL 3.0
-!LICENSE: https://github.com/REIJI007/Adblock-Rule-Collection/LICENSE-CC-BY-NC-SA 4.0
+!License1: https://github.com/REIJI007/Adblock-Rule-Collection/blob/main/LICENSE-GPL 3.0
+!License2: https://github.com/REIJI007/Adblock-Rule-Collection/blob/main/LICENSE-CC-BY-NC-SA 4.0
 !生成时间: {timestamp}
 !有效规则数目: {len(rules)}
 """
